@@ -41,15 +41,26 @@ p{
     position: absolute;
     bottom:3rem;
 }
-
+.btn:hover{
+    color:var(--primary);
+    border:1px solid var(--primary);
+}
+.sedans .btn:hover{
+    background-color: var(--sedan);
+}
+.suvs .btn:hover{
+    background-color: var(--suv);
+}
+.luxury .btn:hover{
+    background-color: var(--luxury);
+}
 .wrapper{
     /* border: 2px solid red; */
     background:var(--primary);
     height: 100vh;
     display: grid;
     align-items: center;
-    justify-items:center;
-    
+    justify-items:center;   
 }
 .container{
     /* border: 2px solid blue; */
