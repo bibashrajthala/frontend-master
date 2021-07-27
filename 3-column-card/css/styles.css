@@ -1,0 +1,144 @@
+/* CSS reset  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 15px;
+}
+
+:root{
+    --primary:hsl(0, 0%, 95%);
+    --sedan: hsl(31, 77%, 52%);
+    --suv:hsl(184, 100%, 22%);
+    --luxury: hsl(179, 100%, 13%);
+    --para:hsla(0, 0%, 100%, 0.75);
+}
+h1{
+    color:var(--primary);
+    font-family: 'Big Shoulders Display', cursive;
+    margin:1.7rem 0;
+    font-size: 2.5rem;
+}
+p{
+    color:var(--para);
+    font-family: 'Lexend Deca', sans-serif;
+    line-height: 1.5;
+}
+.btn{
+    /* border: 1px solid white; */
+    background-color:var(--primary);
+    text-decoration: none;
+    padding:0.8rem 0.8rem;
+    text-align: center;
+    display: block;
+    width: 50%;
+    border-radius: 2rem;
+    /* margin: auto; */
+    font-family: 'Lexend Deca', sans-serif;
+    position: absolute;
+    bottom:3rem;
+}
+
+.wrapper{
+    /* border: 2px solid red; */
+    background:var(--primary);
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-items:center;
+    
+}
+.container{
+    /* border: 2px solid blue; */
+    border-radius: 1rem;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 60%;
+    height:60%;
+    /* margin: auto; */
+    align-items: center;
+    overflow: hidden;
+}
+.container section{
+    height: 100%;
+    position: relative;
+}
+.sedans{
+    /* border: 2px solid green; */
+    background: var(--sedan);
+    padding:3rem;
+}
+.sedans a{
+    color:var(--sedan) ;
+}
+.suvs{
+    /* border: 2px solid yellow; */
+    background: var(--suv);
+    padding: 3rem;
+}
+.suvs a{
+    color:var(--suv);
+}
+.luxury{
+    /* border: 2px solid gray; */
+    background: var(--luxury);
+    padding:3rem;
+}
+.luxury a{
+    color:var(--luxury);
+}
+
+@media (max-width:1160px) , (max-height:650px){
+    .wrapper{
+        height: auto;
+    }
+    .container{
+        margin: 5rem 0;
+        width:75%;
+        height:auto;
+    }
+    section p{
+        margin-bottom: 4rem;
+    }
+}
+@media (max-width:880px){
+    .wrapper{
+        height: auto;
+    }
+    .container{
+        width:75%;
+        height:auto;
+        margin: 6rem 0;
+        grid-template-areas:
+        'sedans'
+        'suvs'
+        'luxury';
+        grid-template-columns: auto;
+    }
+    .container section{
+        /* width: auto; */
+        height: auto;
+    }
+    section p{
+        margin-bottom: 7rem;
+    }
+    .sedans{
+        grid-area: sedans;
+    }
+    .suvs{
+        grid-area: suvs;
+    }
+    .luxury{
+        grid-area: luxury;
+}
+@media (max-height:600px){
+    .container{
+        width:90%;
+        height:80%
+        margin:0;
+
+    }
+}
