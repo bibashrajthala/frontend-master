@@ -1,0 +1,185 @@
+/*CSS reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* end of css reset */
+
+/*utility classes */
+.text-center{
+    text-align: center;
+}
+h3{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+p{
+    font-size: 1.2rem;
+    color:var(--grayblue);
+}
+h2 ,
+h1{
+    font-size: 2.3rem;
+}
+h1,h3{
+    color: var(--darkblue);
+    text-shadow: 1px 1px 3px hsl(234, 12%, 34%);
+}
+h2{
+    color: var(--grayblue);
+    font-weight: 300;  
+}   
+/* end of utility classes */
+
+/* css variables */
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --darkblue:hsl(234, 12%, 34%);
+    --grayblue: hsl(229, 6%, 66%);
+    --lightgray: hsl(0, 0%, 98%);
+}
+/* end of css variables */
+
+/* wrapper  */
+.wrapper{
+    border: 2px solid greenyellow;
+    min-height: 100vh;
+    padding:4rem 3rem;
+    background: var(--lightgray);
+}
+/* end of wrapper  */
+
+/*header*/
+header{
+    /* border: 2px solid red; */
+    padding:1rem;
+    margin-bottom: 1.8rem;
+}
+header p{
+    font-size: 1.5rem;
+    width: min(90%,500px);
+    margin-inline: auto;
+    margin-top: 1.8rem;
+}
+/* end of header  */
+
+/*main container */
+.main-container{
+    /* border: 2px solid blue; */
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.item{
+    /* border:2px solid green; */
+    height: 20rem;
+    width: 30rem;
+    margin-top: 2rem;
+    background: var(--lightgray);
+    box-shadow: 0.6rem 0.6rem 2rem hsl(229, 6%, 80%);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.5;
+}
+.item img{
+    position: absolute;
+    bottom:2.5rem;
+    right: 2.5rem;
+    max-width: 60px;
+}
+.column2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.column2-item.item{
+    /* border: 2px solid black; */
+}
+/* .column1.item{
+    border-top: 4px solid var(--cyan);
+}
+.column2-item.item1{
+    border-top: 4px solid var(--red);
+}
+.column2-item.item2{
+    border-top: 4px solid var(--orange);
+}
+.column3.item{
+    border-top: 4px solid var(--blue);
+} */
+
+/*giving line in top of box */
+.item::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.column1.item::after{
+    background: var(--cyan);
+}
+.column2-item.item1::after{
+    background: var(--red);
+}
+.column2-item.item2::after{
+    background: var(--orange);
+}
+.column3.item::after{
+    background: var(--blue);
+}
+/*end of giving line in top of boxes */
+/* end of main container  */
+
+/* footer  */
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    padding:5px;
+    background-color: black;
+    color: white;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+/* end of footer  */
+
+/* media queries */
+@media (min-width:750px){
+    .main-container{
+        flex-direction: row;
+    }
+    .item{
+        width:30rem ;
+        height: 20rem;
+    }
+    .main-container > *{
+        margin-right: 2rem;
+    }
+}
+@media (min-width:500px) and ({
+    .item{
+        width:36rem ;
+    }
+}
+
+
+
+
+
