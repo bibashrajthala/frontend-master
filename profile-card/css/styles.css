@@ -1,0 +1,175 @@
+/*Css Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+/* End of css reset */
+
+/*VAriables */
+:root{
+    --mainbg:hsl(185, 75%, 39%);
+    --upperbox1: hsl(229, 23%, 23%);
+    --upperbox2: hsl(227, 10%, 46%);
+    --text:hsl(0, 0%, 59%);/*neutral*/
+}
+/*end of variables */
+
+/*Utility class */
+h2{
+    font-size: 1.8rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: hsl(0, 2%, 25%);
+}
+p{
+    color: var(--text);
+    font-size: 1.2rem;
+}
+/* ENd of Utility class */
+
+/*main background */
+main{
+    /* border: 2px solid red; */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--mainbg); */
+    /*bg-color must be below bg otherwise bg overrides bg-color*/
+    /* background: url('../images/bg-pattern-top.svg') no-repeat  top left , url('../images/bg-pattern-bottom.svg') no-repeat bottom right; */
+    /* background-size: 700px; */
+    background-color: var(--mainbg);
+    position: relative;
+    z-index: -2;
+    overflow: hidden;
+}
+/*doesnot work */
+/* main::before{  
+    content: "";
+    width: 100%;
+    height: 100%;
+    background:url('../images/bg-pattern-top.svg') no-repeat center/cover;
+    position: absolute;
+    top: -100px;
+    left:-100px;
+} */
+.circles img{
+    position: absolute;
+}
+.circle-top img{
+    top:-600px;
+    left:-700px;
+    z-index: -1;
+}
+.circle-bottom img{
+    bottom: -660px;
+    right: -709px;
+    z-index: -1;
+}
+/* end of main background */
+
+/*start of container */
+.container{
+    /* border: 2px solid blue; */
+    /* min-height: 60%; */
+    width: 90%;
+    border-radius: 2rem;
+    text-align: center;
+    overflow: hidden;
+    background: hsl(0, 0%, 100%);
+}
+
+.box1{
+    /* border: 2px solid green; */
+    min-height: 130px;
+    background: url('../images/bg-pattern-card.svg');
+    
+}
+
+.profile-pic{
+    /* border: 2px solid black; */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border:5px solid hsl(0, 0%, 100%); 
+    margin: -50px auto 50px auto;  
+}
+.profile-pic img{
+    width: 100%;
+}
+
+.box2 .name-age{
+    /* border: 1px solid yellow; */
+    margin:-3rem auto 5rem auto;
+}
+.name-age span{
+    margin-left: 1rem;
+    color: var(--text);
+    font-weight: 500;
+}
+.address{
+    margin:-4rem 0 2.2rem 0;
+}
+.address .place{
+    font-size: 1.4rem;
+    color: hsl(0, 0%, 59%);
+    font-weight: 500;
+}
+.stats{
+    /* border: 1px solid yellowgreen; */
+    display: flex;
+    width: 100%;
+    padding: 2rem;
+    justify-content: space-around;
+    border-top:0.5px solid hsl(0, 5%, 88%);
+}
+.stats div{
+    /* border: 1px solid red; */
+    line-height: 1.35;
+    text-align: center;
+}
+.stats div p{
+    letter-spacing:1px;
+}
+
+/*end of container */
+
+/*media queries */
+@media (min-width:600px){
+    .container{
+        max-width: 50%;
+    }
+    .circle-top img{
+        top:-650px;
+        left:-490px;
+    }
+    .circle-bottom img{
+        bottom:-680px;
+        right:-510px;
+    }
+    
+}
+@media (min-width:900px){
+    .container{
+        max-width: 40%;
+    }
+}
+@media (min-width:1200px){
+    .container{
+        max-width: 25%;
+    }  
+    .circle-top img{
+        top:-600px;
+        left:-300px;
+    }
+    .circle-bottom img{
+        bottom:-610px;
+        right:-320px;
+    }
+}
