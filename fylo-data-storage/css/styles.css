@@ -1,0 +1,263 @@
+/* css reset  */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* end of css reset  */
+
+/* variables */
+:root{
+    --clr-level-gradient: linear-gradient(to right,hsl(6, 100%, 80%),hsl(335, 100%, 65%));
+    --clr-content-white: hsl(243, 100%, 93%);
+    --clr-content-gray: hsl(229, 7%, 55%);
+    --clr-content-bg: hsl(228, 56%, 26%);
+    --clr-main-bg: hsl(229, 57%, 11%);
+}
+/* end of variables */
+
+
+html{
+    font-size: 10px;
+    color: var(--clr-content-white);
+    font-family:'Raleway', sans-serif; 
+    font-weight: 500;
+}
+
+/* main  */
+main{
+    /* border: 2px solid yellowgreen; */
+    background: url('../images/bg-mobile.png') no-repeat center center/cover;
+    min-height:100vh ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* end of main  */
+
+/* conatiner  */
+.container{
+    /* border: 2px solid red; */
+    min-width: 80%;   
+}
+.container > *{ /* all direct child of container */
+    padding: 3rem;
+    background: var(--clr-content-bg);
+}
+
+/* top container inside container  */
+.top-container{
+    /* border: 2px solid green; */
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    /* align-content: space-around; */
+    justify-content: space-around;
+    border-radius: 1.5rem 11rem 1.5rem 1.5rem;
+}
+
+.icons{
+    display: flex;   
+}
+.icon{
+    background: var(--clr-main-bg);
+    margin-right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    /* height: 2.4rem; */
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;  
+    border-radius: 0.8rem;
+
+}
+/* other soln for icon but here all icon height and width will be same
+.icon{
+    display: inline-block;
+    background: var(--clr-main-bg);
+    padding: 1rem;
+    margin-right: 1rem;
+}
+.icon img{
+    width: 2.4rem;
+    height: 2.4rem;
+}*/
+
+/* end of top container inside container  */
+
+/* bottom container inside container  */
+.bottom-container{
+    /* border: 2px solid yellow; */
+    border-radius: 1.5rem;
+    min-height: 15rem;
+    margin-top: 2rem;
+    position: relative;
+}
+/* .bottom-container > *{
+    margin-bottom: 1.5rem;
+}
+.bottom-container > .storage-left{
+    margin-bottom: -1.5rem;
+} */
+p{
+    font-size: 1.4rem;
+    color: var(--clr-content-gray);
+    text-align: center;
+    margin-bottom: 1.4rem;
+    
+}
+p span{
+    font-family:'Raleway', sans-serif; 
+    color: var(--clr-content-white);
+    font-weight: 600;
+    
+}
+
+/* creating level box  */
+.storage-level{
+    height: 2rem;
+    width: 100%;
+    background: var(--clr-main-bg);
+    border-radius: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--clr-main-bg);
+}
+
+/* for showing storage accupied in storage level  */
+.storage-level::before{
+    content: "";
+    position: absolute;
+    background: var(--clr-level-gradient);
+    height: 100%;
+    width: 100%;
+    right:18.5%; /* (since 81.5%(815gb out of 1000gb) of storage is occupied 18.5% is left so right 18.5%) */
+    border-radius: 1.5rem;
+}
+
+/* for white dot  */
+.storage-level::after{
+    content: "";
+    position: absolute;
+    background: var(--clr-content-white);
+    height: 11px;
+    width: 11px;
+    top:50%;
+    transform: translateY(-50%);
+    right:19.5%;
+    border-radius: 50%;
+}
+/* end of creating level box */
+
+/*other way of creating level box */
+
+/*make 3 divs one inside other eg: .ouside-box with padding 1% of width 100%,  .inside-box also with padding 1% inside of .outside-box with width 81.5%, .whitedot box inside of inside-box with flex-direction:flex-end in its container .inside-box */
+
+
+.labels{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;   
+}
+
+.storage-left{
+    /* border: 2px solid gray; */
+    width: min(18rem,30rem);
+    min-height: 8rem;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%,50%);
+    background: var(--clr-content-white);
+    color:var(--clr-main-bg);
+     /* text-align: center; */
+    /* vertical-align:middle; */   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5rem;
+}
+.storage-left .number{
+    font-size: 4rem;
+}
+.storage-left .text{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--clr-content-gray);
+}
+/* end of .bottom-container inside container  */
+
+/* end  of container  */
+
+/* media queries  */
+@media (min-width:1000px){
+    main{
+        background: var(--clr-main-bg);
+        position: relative;
+        z-index: -2;
+    }
+    main::after{
+        content: "";
+        position: absolute;
+        background: url('../images/bg-desktop.png');
+        height: 50%;
+        width: 100%;
+        bottom: 0;
+        z-index: -1;
+    }
+    .container{
+        display: flex;
+        min-width: 65%;
+    }
+    .top-container{
+        flex-basis: 38%;
+        margin-right: 2rem;
+    }
+    .bottom-container{
+        flex: 1;
+        max-height: 4rem;
+        align-self: flex-end;
+    }
+    .bottom-container .labels{
+        margin-bottom: 0;
+    }
+    .bottom-container p{
+        text-align: left;   
+    }
+    .storage-left{
+        min-height: 5rem;
+        width: 15rem;
+        position: absolute;
+        right: 3rem;
+        bottom: 100%;
+        transform: translate(0%,50%); 
+        border-bottom-right-radius: 0; 
+    }
+    .storage-left::after{
+        content: "";
+        position: absolute;
+        /* background: var(--clr-content-white); */
+        /* height: 2rem;
+        width: 2rem; */
+        border-top: 2rem solid var(--clr-content-white);
+        border-left: 2rem solid transparent;
+        /* overflow: hidden; */
+        bottom:0;
+        right: 0;
+        transform: translateY(100%);
+    }
+    .storage-left .number{
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width:360px){
+    .container{
+        width: 90%;
+    }
+}
